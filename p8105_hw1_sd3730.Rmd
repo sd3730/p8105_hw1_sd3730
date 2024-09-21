@@ -34,6 +34,8 @@ ggsave("penguins_scatterplot.png", height = 4, width = 6)
 
 # Problem 2
 
+This code creates a tibble named hw1_df that contains four columns of mixed data types for analysis.
+
 ```{r hw1_p2}
 hw1_df = tibble(
  numeric_var = rnorm(10),              
