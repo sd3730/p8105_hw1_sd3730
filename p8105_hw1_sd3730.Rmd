@@ -74,4 +74,7 @@ list(
 )
 ```
 
-After converting the logical, character, and factor variables to numeric, the logical and factor vectors are converted to numbers. "True" values are converted to 1 and "False" values are converted to 0. The factor vector is converted into numbers to represent the levels of the factor (no, yes, maybe). However, the conversion can be misleading because the conversion is not meaningful. The character vectors still result in NA values because each character cannot be interpreted as numbers.
+### Converting variables to numeric
+After converting the logical, character, and factor variables to numeric, the logical and factor vectors are converted to numbers. "True" values are converted to 1 and "False" values are converted to 0. The factor vector is converted into numbers to represent the levels of the factor (no, yes, maybe). However, the conversion can be misleading because the conversion is not meaningful. The character vectors result in NA values because each character cannot be interpreted as numbers.
+
+This explains why the mean cannot be returned for character and factor vector variables because these data types do not have a numeric representation that allows for conversion.
