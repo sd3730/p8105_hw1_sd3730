@@ -50,3 +50,9 @@ This is the dataframe output.
 print(hw1_df)
 ```
 
+When trying to return the mean of each variable...
+
+* The mean of the random sample is `r mean(pull(hw1_df, rand_samp))`
+* The mean of the logical vector is `r mean(pull(hw1_df, logical_vec))`
+* The mean of the character vector is `r mean(pull(hw1_df, char_vec))`
+* The mean of the factor vector is `r mean(pull(hw1_df, factor_vec))`
