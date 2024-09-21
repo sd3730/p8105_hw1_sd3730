@@ -56,3 +56,13 @@ When trying to return the mean of each variable...
 * The mean of the logical vector is `r mean(pull(hw1_df, logical_vec))`
 * The mean of the character vector is `r mean(pull(hw1_df, char_vec))`
 * The mean of the factor vector is `r mean(pull(hw1_df, factor_vec))`
+
+The random sample and logical vector is able to return a mean. However, the character and factor vectors are not able to return a mean because it is neither numeric nor logical.
+
+```{r convert_types, echo = FALSE, warning = FALSE}
+numeric_logical_vec = as.numeric(hw1_df$logical_vec)
+numeric_char_vec = as.numeric(hw1_df$char_vec)
+numeric_factor_vec = as.numeric(hw1_df$factor_vec)
+```
+
+After converting the logical, character, and factor variables to numeric, the logical and factor vectors are converted to numbers. "True" values are converted to 1 and "False" values are converted to 0. The factor vector is converted into numbers to represent the levels of the factor (no, yes, maybe). However, the conversion can be misleading because the conversion is not meaningful. The character vectors still result in NA values because each character cannot be interpreted as numbers.
