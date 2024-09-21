@@ -4,11 +4,13 @@ author: "Stacey Dai"
 output: github_document
 ---
 
-```{r setup, include = FALSE}
+# Problem 0.1
+
+This code is used to set up the RMarkdown file and load necessary packages.
+```{r setup, message = FALSE}
 library(tidyverse)
 data("penguins", package = "palmerpenguins")
 ```
-
 
 # Problem 1
 
@@ -22,10 +24,15 @@ Other variables include `bill_length_mm` and `bill_depth_mm`, which describe the
 The variable `flipper_length_mm` represents the length of the penguins' flippers in millimeters. The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm.
 
 ## Scatterplot of flipper length by bill length
+
+This code creates a scatterplot using the `ggplot` function to visualize the relationship between bill length and flipper length. Here's the code:
+
 ```{r yx_scatter, warning = FALSE}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + 
   geom_point()
 ```
+
+The resulting scatterplot helps to visually assess any correlations between bill length and flipper length, while also illustrating the differences across species of penguins.
 
 ```{r save-plot, echo = FALSE, warning = FALSE}
 ggsave("penguins_scatterplot.png", height = 4, width = 6)
@@ -34,7 +41,12 @@ ggsave("penguins_scatterplot.png", height = 4, width = 6)
 
 # Problem 2
 
-This code creates a tibble named hw1_df that contains four columns of mixed data types for analysis.
+This code creates a tibble named hw1_df that contains four variables of different data types.
+
+- **rand_samp** generates a random sample of 10 values drawn from a standard normal distribution (mean = 0, standard deviation = 1)
+- **logical_vec** creates a logical vector indicating whether each element in `rand_samp` is greater than 0
+- **char_vec** defines a character vector containing 10 distinct animal names
+- **factor_vec** creates a factor vector that includes categorical data with three levels
 
 ```{r hw1_p2}
 hw1_df = tibble(
@@ -45,7 +57,7 @@ hw1_df = tibble(
 )
 ```
 
-This is the dataframe output.
+This displays the contents of the dataframe 'hw1_df'.
 ```{r display_table, echo = FALSE}
 print(hw1_df)
 ```
@@ -59,12 +71,12 @@ When trying to return the mean of each variable...
 
 The random sample and logical vector is able to return a mean. However, the character and factor vectors are not able to return a mean because it is neither numeric nor logical.
 
+
 ```{r convert_types, echo = FALSE, warning = FALSE}
 numeric_logical_vec = as.numeric(hw1_df$logical_vec)
 numeric_char_vec = as.numeric(hw1_df$char_vec)
 numeric_factor_vec = as.numeric(hw1_df$factor_vec)
 ```
-
 
 ```{r list_converted, echo = FALSE, results = "hide", warning = FALSE}
 list(
@@ -75,6 +87,6 @@ list(
 ```
 
 ### Converting variables to numeric
-After converting the logical, character, and factor variables to numeric, the logical and factor vectors are converted to numbers. "True" values are converted to 1 and "False" values are converted to 0. The factor vector is converted into numbers to represent the levels of the factor (no, yes, maybe). However, the conversion can be misleading because the conversion is not meaningful. The character vectors result in NA values because each character cannot be interpreted as numbers.
+After applying the as.numeric function to the logical, character, and factor variables, the logical and factor vectors were converted to numbers. Logical vector "True" values were converted to 1 and "False" values were converted to 0. The factor vector was converted into numbers to represent the levels of the factor (no, yes, maybe). However, the conversion was misleading because the conversion was not meaningful. The character vectors result in NA values because each character could not be interpreted as numbers.
 
-This explains why the mean cannot be returned for character and factor vector variables because these data types do not have a numeric representation that allows for conversion.
+This explains why the mean was not returned for character and factor vector variables because these data types do not have a numeric representation that allows for conversion.
