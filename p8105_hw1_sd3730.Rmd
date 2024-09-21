@@ -32,5 +32,12 @@ ggsave("penguins_scatterplot.png", height = 4, width = 6)
 ```
 
 
+# Problem 2
 
-
+```{r hw1_p2}
+hw1_df = tibble(
+ numeric_var = rnorm(10),              
+  logical_var = rnorm(10) > 0,
+  character_var = sample(letters[1:10], 10),
+  factor_var = factor(sample(letters[1:3], 10, replace = TRUE))
+)
