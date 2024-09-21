@@ -22,9 +22,12 @@ Other variables include `bill_length_mm` and `bill_depth_mm`, which describe the
 The variable `flipper_length_mm` represents the length of the penguins' flippers in millimeters. The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm.
 
 ## Scatterplot of flipper length by bill length
-```{r yx_scatter}
+```{r yx_scatter, warning = FALSE}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + 
   geom_point()
+```
+
+```{r save-plot, echo = FALSE, warning = FALSE}
 ggsave("penguins_scatterplot.png", height = 4, width = 6)
 ```
 
