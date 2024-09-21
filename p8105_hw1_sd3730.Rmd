@@ -25,7 +25,9 @@ The variable `flipper_length_mm` represents the length of the penguins' flippers
 ```{r yx_scatter}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + 
   geom_point()
+ggsave("penguins_scatterplot.png", height = 4, width = 6)
 ```
+
 
 
 
