@@ -38,11 +38,15 @@ This code creates a tibble named hw1_df that contains four columns of mixed data
 
 ```{r hw1_p2}
 hw1_df = tibble(
- numeric_var = rnorm(10),              
-  logical_var = rnorm(10) > 0,
-  character_var = sample(letters[1:10], 10),
-  factor_var = factor(sample(letters[1:3], 10, replace = TRUE))
+  rand_samp = rnorm(10),              
+  logical_vec = rand_samp > 0,
+  char_vec = c("bear", "dog", "cat", "dolphin", "penguin", "cabybara", "llama", "goose", "pigeon", "goat"),
+  factor_vec = factor(c("yes", "maybe", "no", "yes", "maybe", "yes", "no", "no", "maybe", "yes"))
 )
+```
 
+This is the dataframe output.
 ```{r display_table, echo = FALSE}
 print(hw1_df)
+```
+
